@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --font-manrope: "Manrope", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-questrial: "Questrial", sans-serif;
+  --font-geist: "Geist", sans-serif;
+  --font-lato: "Lato", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+
+  --color-nav: #020407;
+  --color-button: #010205;
+  --color-paragraph: #05131d;
+  --color-foundationBlue: #00245f;
+  --color-foundationBlue400: #335386;
+  --color-FoundationYellow: #fce38a;
+  --color-foundationYellow800: #8b7d4c;
+  --color-title: #262626;
+  --color-subTitle: #59595a;
+  --color-subTitle2: #b9bdc7;
+  --color-cardBG: #f0f0f0;
+  --color-cardTag: #4c4c4d;
+  --color-buttonBG: #002868;
+  --color-role: #878c91;
+  --color-faq: #636363;
+  --color-aiTitle: #1b1b1b;
+  --color-aiSubTitle: #171d25;
+  --color-aiPara: #909090;
+  --color-aiBG: #f2f3f3;
+}
+
+body {
+  font-family: var(--font-manrope);
+  color: var(--color-title);
+  @apply min-h-screen bg-cover bg-center bg-no-repeat;
+  background-image: url("/BackgroundNoise.png");
+}
+
+.maxContainer {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.myContainer {
+  max-width: 1480px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+@keyframes spin-shoot {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(360deg) scale(1.3); }
+  100% { transform: rotate(720deg) scale(1); }
+}
+
+@keyframes pulse-pop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.5); }
+}
+
+.animate-shoot { animation: spin-shoot 1s ease-in-out; }
+.animate-pop { animation: pulse-pop 1s ease-in-out; }
+.animate-wave { animation: wave 1s ease-in-out; }
