@@ -8,6 +8,7 @@ import AiCoach from "./components/AiCoach";
 import HowItWorks from "./components/HowItWorks";
 import Integrations from "./components/Integrations";
 import Capabilities from "./components/Capabilities";
+import Pricing from "./components/Pricing";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
       <Integrations /> 
       <HowItWorks />
       <Review />
+      <Pricing />
       <FAQ />
       <Footer />
     </div>
