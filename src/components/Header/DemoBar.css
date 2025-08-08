@@ -1,0 +1,24 @@
+/* Scoped background texture ONLY for DemoBar */
+.DemoBar {
+    position: relative;
+    isolation: isolate;       /* prevents sibling backgrounds from bleeding in */
+  }
+  
+  .DemoBar__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("/BackgroundNoise.png");
+    background-size: cover;   /* or 'contain' if you prefer */
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;               /* tweak if you want it softer, e.g. 0.8 */
+  }
+  
+  /* Make sure content sits above the background */
+  .DemoBar__content {
+    position: relative;
+    z-index: 1;
+  }
+  
