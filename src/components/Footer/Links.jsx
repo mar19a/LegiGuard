@@ -2,111 +2,104 @@ import React from "react";
 
 const Links = () => {
   return (
-    <footer className="py-28 grid grid-cols-1 md:grid-cols-4 gap-20 mt-12 text-sm">
-      {/* Logo & Description */}
-      <div className="col-span-1 md:col-span-2 max-w-lg">
-        <img
-          src="/images/legiguard.png"
-          alt="SalesRank.AI"
-          className="h-20 w-auto"
-        />
+    <footer className="mt-0 bg-transparent">
+      {/* Top section */}
+      <div className="myContainer">
+        <div className="pt-16 pb-10 grid grid-cols-1 md:grid-cols-12 gap-12">
+          {/* Brand column */}
+          <div className="md:col-span-5">
+            <img
+              src="/images/legiguard.png"
+              alt="LegiGuard"
+              className="h-24 w-auto"
+            />
+            <p className="mt-6 text-base leading-7 text-foundationBlue400">
+              LegiGuard delivers AI-powered solutions for automated compliance,
+              audit readiness, and operational insight—helping teams reduce manual
+              effort and scale with confidence.
+            </p>
 
-        <p className="text-foundationBlue400 text-sm leading-6 my-8">
-        LegiGuard delivers AI-powered solutions that make running your business easier, faster, and more secure. From automated compliance and audit readiness to intelligent code reviews, database optimization, and real-time operational insights, we equip teams with the tools they need to work smarter, reduce manual effort, and scale with confidence.
-        </p>
-
-        <div className="flex gap-3">
-          <div className="w-[34px] h-[34px] rounded-full bg-white  flex items-center justify-center">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-            >
-              <img src="/SVG/facebook.svg" alt="SalesRank.AI" />
-            </a>
+            {/* Social + Email */}
+            <div className="mt-6 flex gap-3">
+              {[
+                { href: "https://facebook.com", icon: "facebook", label: "Facebook" },
+                { href: "https://twitter.com", icon: "twitter", label: "Twitter" },
+                { href: "https://linkedin.com", icon: "linkedin", label: "LinkedIn" },
+                { href: "https://instagram.com", icon: "instagram", label: "Instagram" },
+                { href: "mailto:contact@legiguard.com", icon: "email", label: "Email" },
+              ].map(({ href, icon, label }) => (
+                <a
+                  key={icon}
+                  href={href}
+                  target={icon !== "email" ? "_blank" : undefined}
+                  rel={icon !== "email" ? "noopener noreferrer" : undefined}
+                  aria-label={label}
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-gray-200 hover:ring-gray-300 transition"
+                >
+                  <img src={`/SVG/${icon}.svg`} alt={label} className="h-5 w-5" />
+                </a>
+              ))}
+            </div>
           </div>
 
-          <div className="w-[34px] h-[34px] rounded-full bg-white  flex items-center justify-center">
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-            >
-              <img src="/SVG/twitter.svg" alt="SalesRank.AI" />
-            </a>
+          {/* Column: Product */}
+          <div className="md:col-span-2">
+            <h4 className="text-foundationBlue text-sm font-semibold uppercase tracking-wider">
+              Product
+            </h4>
+            <ul className="mt-5 space-y-3 text-foundationBlue400">
+              <li><a href="/features" className="hover:text-foundationBlue transition">Features</a></li>
+              <li><a href="/pricing" className="hover:text-foundationBlue transition">Pricing</a></li>
+              <li><a href="/integrations" className="hover:text-foundationBlue transition">Integrations</a></li>
+              <li><a href="/frameworks" className="hover:text-foundationBlue transition">Frameworks</a></li>
+            </ul>
           </div>
 
-          <div className="w-[34px] h-[34px] rounded-full bg-white  flex items-center justify-center">
-            <a
-              href="https://linkedIn.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-            >
-              <img src="/SVG/linkedin.svg" alt="SalesRank.AI" />
-            </a>
+          {/* Column: Company */}
+          <div className="md:col-span-2">
+            <h4 className="text-foundationBlue text-sm font-semibold uppercase tracking-wider">
+              Company
+            </h4>
+            <ul className="mt-5 space-y-3 text-foundationBlue400">
+              <li><a href="/about" className="hover:text-foundationBlue transition">About</a></li>
+              <li><a href="/customers" className="hover:text-foundationBlue transition">Customers</a></li>
+              <li><a href="/careers" className="hover:text-foundationBlue transition">Careers</a></li>
+              <li><a href="/contact" className="hover:text-foundationBlue transition">Contact</a></li>
+            </ul>
           </div>
 
-          <div className="w-[34px] h-[34px] rounded-full bg-white  flex items-center justify-center">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
-              <img src="/SVG/instagram.svg" alt="SalesRank.AI" />
-            </a>
+          {/* Column: Resources */}
+          <div className="md:col-span-3">
+            <h4 className="text-foundationBlue text-sm font-semibold uppercase tracking-wider">
+              Resources
+            </h4>
+            <ul className="mt-5 space-y-3 text-foundationBlue400">
+              <li><a href="/blog" className="hover:text-foundationBlue transition">Blog</a></li>
+              <li><a href="/docs" className="hover:text-foundationBlue transition">API Documentation</a></li>
+              <li><a href="/help" className="hover:text-foundationBlue transition">Help Center</a></li>
+              <li><a href="/guides" className="hover:text-foundationBlue transition">Compliance Guides</a></li>
+              <li><a href="/status" className="hover:text-foundationBlue transition">Status</a></li>
+            </ul>
           </div>
         </div>
       </div>
 
-      {/* Links */}
-      <div className="flex flex-row col-span-1 md:col-span-2 justify-between">
-        {/* Navigation */}
-        <div>
-          <h4 className="text-foundationBlue  text-lg  font-semibold mb-9">
-            Navigation
-          </h4>
-          <ul className="space-y-5 text-foundationBlue400 text-sm">
-            <li>Service</li>
-            <li>Agency</li>
-            <li>Case Study</li>
-            <li>Resource</li>
-            <li>Contact</li>
-          </ul>
-        </div>
+      {/* Divider */}
+      <div className="border-t border-gray-200" />
 
-        {/* Licence */}
-        <div>
-          <h4 className="text-foundationBlue  text-lg  font-semibold mb-9">
-            Licence
-          </h4>
-          <ul className="space-y-5 text-foundationBlue400 text-sm">
-            <li>Privacy Policy</li>
-            <li>Copyright</li>
-            <li>Email Address</li>
-          </ul>
-        </div>
-
-        {/* Contact */}
-        <div>
-          <h4 className="text-foundationBlue text-lg font-semibold mb-9">
-            Contact
-          </h4>
-          <ul className="space-y-5 text-foundationBlue400 text-sm">
-            <li className="flex items-center gap-2">
-              <img src="/SVG/phone.svg" alt="SalesRank.AI" /> (406) 555-0120
-            </li>
-            <li className="flex items-center gap-2">
-              <img src="/SVG/email.svg" alt="SalesRank.AI" /> hey@boostcm.com
-            </li>
-            <li className="flex items-start ml-1.5 gap-2">
-              <img src="/SVG/location.svg" alt="SalesRank.AI" /> 2972 Westheimer
-              Rd. Santa Ana, <br /> Illinois 85486
-            </li>
-          </ul>
+      {/* Bottom bar */}
+      <div className="myContainer">
+        <div className="py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-foundationBlue400">
+            © {new Date().getFullYear()} LegiGuard. All rights reserved.
+          </p>
+          <nav className="flex items-center gap-5 text-xs text-foundationBlue400">
+            <a href="/privacy" className="hover:text-foundationBlue transition">Privacy Policy</a>
+            <span className="text-gray-300">•</span>
+            <a href="/terms" className="hover:text-foundationBlue transition">Terms</a>
+            <span className="text-gray-300">•</span>
+            <a href="/security" className="hover:text-foundationBlue transition">Security</a>
+          </nav>
         </div>
       </div>
     </footer>

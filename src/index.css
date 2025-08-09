@@ -53,6 +53,17 @@ html {
 }
 
 
+html, body, #root {
+  width: 100%;
+  overflow-x: hidden;   /* block horizontal scrolling */
+}
+
+.maxContainer {
+  overflow-x: clip;      /* clip any child overflow from full-bleed sections */
+}
+
+
+
 
 @keyframes spin-shoot {
   0% { transform: rotate(0deg) scale(1); }
