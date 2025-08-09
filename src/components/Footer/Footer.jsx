@@ -19,7 +19,7 @@ const Footer = () => {
         />
 
         <div className="myContainer">
-          <JoinNow />
+
           <Links />
         </div>
       </div>

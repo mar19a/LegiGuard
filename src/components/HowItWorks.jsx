@@ -138,44 +138,53 @@ const HowItWorks = () => {
                 {/* Animated content */}
                 <div className="relative z-10 p-6 md:p-8">
                   <AnimatePresence mode="wait">
-                    {activeStep.key === "connect" && (
-                      <motion.div
-                        key="connect"
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.25 }}
-                        className="space-y-6"
-                      >
-                        {/* Connect grid */}
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                          {[
-                            { name: "Slack", color: "from-indigo-500 to-sky-500" },
-                            { name: "AWS", color: "from-amber-500 to-orange-600" },
-                            { name: "GitHub", color: "from-gray-700 to-gray-900" },
-                            { name: "Google Drive", color: "from-green-500 to-emerald-600" },
-                            { name: "Jira", color: "from-blue-500 to-blue-700" },
-                            { name: "Okta", color: "from-purple-500 to-fuchsia-600" },
-                          ].map((i) => (
-                            <div
-                              key={i.name}
-                              className="flex items-center gap-3 rounded-xl border border-gray-200 p-3 hover:shadow-sm transition"
-                            >
-                              <div className={`h-9 w-9 rounded-lg bg-gradient-to-br ${i.color}`} />
-                              <div>
-                                <p className="text-sm font-medium text-gray-900">{i.name}</p>
-                                <p className="text-xs text-gray-500">OAuth • Scoped</p>
-                              </div>
+                  {activeStep.key === "connect" && (
+                    <motion.div
+                      key="connect"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.25 }}
+                      className="space-y-6"
+                    >
+                      {/* Connect grid with real logos */}
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        {[
+                          { name: "Slack", file: "slack.png" },
+                          { name: "AWS", file: "aws.png" },
+                          { name: "GitHub", file: "github.png" },
+                          { name: "Google Drive", file: "drive.png" },
+                          { name: "Jira", file: "jira.png" },
+                          { name: "Okta", file: "okta.png" },
+                        ].map((i) => (
+                          <div
+                            key={i.name}
+                            className="flex items-center gap-3 rounded-xl border border-gray-200 p-3 hover:shadow-sm transition bg-white"
+                          >
+                            <div className="h-9 w-9 flex items-center justify-center">
+                              <img
+                                src={`/integrations/${i.file}`}
+                                alt={`${i.name} logo`}
+                                className="max-h-full max-w-full object-contain"
+                              />
                             </div>
-                          ))}
-                        </div>
+                            <div>
+                              <p className="text-sm font-medium text-gray-900">{i.name}</p>
+                              <p className="text-xs text-gray-500">OAuth • Scoped</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
 
-                        {/* Inline note */}
-                        <div className="rounded-xl bg-emerald-50 text-emerald-900 text-sm px-4 py-3 border border-emerald-100">
-                          Connections use read-only scopes by default. Write access is optional & auditable.
-                        </div>
-                      </motion.div>
-                    )}
+                      {/* Inline note */}
+                      <div className="rounded-xl bg-emerald-50 text-emerald-900 text-sm px-4 py-3 border border-emerald-100">
+                        Connections use read-only scopes by default. Write access is optional & auditable.
+                      </div>
+                    </motion.div>
+                  )}
+
+
+
 
                     {activeStep.key === "scan" && (
                       <motion.div
