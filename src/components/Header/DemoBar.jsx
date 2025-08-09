@@ -4,49 +4,46 @@ import { ShieldCheck, Code2, Database, Rocket, Lock, CheckCircle } from "lucide-
 const industries = ["Finance", "Healthcare", "SaaS", "E-commerce", "GovTech", "Biotech", "Tech"];
 
 const Pill = ({ icon: Icon, children }) => (
-    <li>
-      <span
-        className="
-          group relative inline-flex items-center gap-2
-          rounded-full bg-white border border-gray-200 px-3 py-1.5
-          text-xs md:text-sm text-gray-700 shadow-sm transition
-          hover:-translate-y-0.5 hover:shadow-md focus:outline-none
-          focus-visible:ring-2 focus-visible:ring-blue-500/50
-        "
-        role="button"
-        tabIndex={0}
-      >
-        {/* sheen cover */}
-        <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
-          <span
-            className="
-              absolute -left-1/2 top-0 h-full w-1/2
-              bg-gradient-to-r from-transparent via-white/50 to-transparent
-              opacity-0 transition-all duration-700
-              group-hover:left-full group-hover:opacity-100
-              motion-reduce:transition-none
-            "
-          />
-        </span>
-  
-        {/* soft ring-on-hover */}
+  <li>
+    <span
+      className="
+        group relative inline-flex items-center gap-2
+        rounded-full bg-white border border-gray-200 px-3 py-1.5
+        text-xs md:text-sm text-gray-700 shadow-sm transition
+        hover:-translate-y-0.5 hover:shadow-md focus:outline-none
+        focus-visible:ring-2 focus-visible:ring-blue-500/50
+      "
+      role="button"
+      tabIndex={0}
+    >
+      <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
         <span
           className="
-            absolute inset-0 rounded-full ring-0 ring-blue-500/0
-            transition group-hover:ring-4 group-hover:ring-blue-500/5
+            absolute -left-1/2 top-0 h-full w-1/2
+            bg-gradient-to-r from-transparent via-white/50 to-transparent
+            opacity-0 transition-all duration-700
+            group-hover:left-full group-hover:opacity-100
+            motion-reduce:transition-none
           "
         />
-  
-        <Icon className="h-3.5 w-3.5 relative z-10" aria-hidden="true" />
-        <span className="relative z-10">{children}</span>
       </span>
-    </li>
-  );
+
+      <span
+        className="
+          absolute inset-0 rounded-full ring-0 ring-blue-500/0
+          transition group-hover:ring-4 group-hover:ring-blue-500/5
+        "
+      />
+      <Icon className="h-3.5 w-3.5 relative z-10" aria-hidden="true" />
+      <span className="relative z-10">{children}</span>
+    </span>
+  </li>
+);
 
 function useTypewriter(words, typing = 60, pause = 1200) {
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const [i, setI] = useState(0); // index in words
+  const [i, setI] = useState(0);
 
   useEffect(() => {
     const full = words[i % words.length];
@@ -92,11 +89,7 @@ const DemoBar = () => {
         <div className="mt-6 flex items-center justify-center gap-4 text-xs text-gray-500">
           <span className="uppercase tracking-wide">Trusted across industries</span>
           <span className="h-3 w-px bg-gray-200" />
-          <div
-            className="opacity-80 font-medium"
-            aria-live="polite"
-            aria-atomic="true"
-          >
+          <div className="opacity-80 font-medium" aria-live="polite" aria-atomic="true">
             <span className="text-gray-400">{typed}</span>
             <span className="ml-1 inline-block w-[1px] h-4 bg-gray-400 align-middle animate-pulse" />
           </div>
@@ -104,28 +97,11 @@ const DemoBar = () => {
 
         {/* Feature pills */}
         <ul className="mt-6 flex flex-wrap items-center justify-center gap-3">
-        <Pill icon={ShieldCheck}>Compliance automation</Pill>
-        <Pill icon={Code2}>Code reviews</Pill>
-        <Pill icon={Database}>Database audits</Pill>
-        <Pill icon={Rocket}>Self-deploying CRM</Pill>
+          <Pill icon={ShieldCheck}>Compliance automation</Pill>
+          <Pill icon={Code2}>Code reviews</Pill>
+          <Pill icon={Database}>Database audits</Pill>
+          <Pill icon={Rocket}>Self-deploying CRM</Pill>
         </ul>
-
-
-        {/* Stat row */}
-        <div className="mt-6 grid grid-cols-3 gap-4 max-w-2xl mx-auto">
-          <div className="rounded-xl bg-white/70 backdrop-blur border border-gray-200 p-3">
-            <p className="text-2xl font-semibold text-black">99.9%</p>
-            <p className="text-xs text-gray-500">Uptime & monitoring</p>
-          </div>
-          <div className="rounded-xl bg-white/70 backdrop-blur border border-gray-200 p-3">
-            <p className="text-2xl font-semibold text-black">&lt; 60s</p>
-            <p className="text-xs text-gray-500">Setup to first check</p>
-          </div>
-          <div className="rounded-xl bg-white/70 backdrop-blur border border-gray-200 p-3">
-            <p className="text-2xl font-semibold text-black">SOC2-ready</p>
-            <p className="text-xs text-gray-500">Templates & controls</p>
-          </div>
-        </div>
 
         {/* Form */}
         <div className="mt-8 max-w-xl mx-auto rounded-2xl border border-gray-200 bg-white/80 backdrop-blur shadow-md">
