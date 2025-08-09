@@ -20,7 +20,6 @@ const Navbar = () => {
     if (open) {
       const prev = document.body.style.overflow;
       document.body.style.overflow = "hidden";
-      // focus the close button for accessibility
       setTimeout(() => closeBtnRef.current?.focus(), 0);
       return () => {
         document.body.style.overflow = prev;
@@ -46,7 +45,11 @@ const Navbar = () => {
         <div className="flex h-20 md:h-24 items-center justify-between gap-6">
           {/* Logo + Desktop Nav */}
           <div className="flex items-center gap-6 md:gap-10">
-            <Link to="/" aria-label="LegiGuard Home" className="shrink-0">
+            <Link
+              to="/"
+              aria-label="LegiGuard Home"
+              className="shrink-0 cursor-pointer"
+            >
               <img
                 src="/images/legiguard.png"
                 alt="LegiGuard"
@@ -61,7 +64,7 @@ const Navbar = () => {
                   key={to}
                   smooth
                   to={to}
-                  className="relative py-2 transition-colors hover:text-black focus:outline-none"
+                  className="relative py-2 transition-colors hover:text-black focus:outline-none cursor-pointer"
                 >
                   {label}
                   <span className="pointer-events-none absolute left-0 -bottom-0.5 h-[2px] w-full origin-left scale-x-0 bg-black/80 transition-transform duration-200 group-hover:scale-x-100 peer-focus:scale-x-100" />
@@ -74,7 +77,7 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={handleClick}
-              className="hidden sm:inline-flex items-center justify-center rounded-full border border-button px-6 md:px-7 py-3 md:py-3.5 text-sm md:text-[15px] font-semibold text-button bg-white/80 backdrop-blur hover:bg-button hover:text-white transition-colors"
+              className="hidden sm:inline-flex items-center justify-center rounded-full border border-button px-6 md:px-7 py-3 md:py-3.5 text-sm md:text-[15px] font-semibold text-button bg-white/80 backdrop-blur hover:bg-button hover:text-white transition-colors cursor-pointer"
             >
               Get started
             </button>
@@ -86,25 +89,29 @@ const Navbar = () => {
               aria-controls="mobile-menu"
               aria-expanded={open}
               onClick={() => setOpen(true)}
-              className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 ring-gray-300/70 hover:ring-gray-400 transition bg-white/70 backdrop-blur"
+              className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 ring-gray-300/70 hover:ring-gray-400 transition bg-white/70 backdrop-blur cursor-pointer"
             >
-              {/* Icon */}
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M4 6h16M4 12h16M10 18h10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+                <path
+                  d="M4 6h16M4 12h16M10 18h10"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                />
               </svg>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu (overlay + drawer) */}
+      {/* Mobile Menu */}
       {open && (
         <>
           {/* Backdrop */}
           <button
             aria-label="Close menu backdrop"
             onClick={() => setOpen(false)}
-            className="fixed inset-0 z-[60] bg-black/30 backdrop-blur-sm"
+            className="fixed inset-0 z-[60] bg-black/30 backdrop-blur-sm cursor-pointer"
           />
           {/* Drawer */}
           <aside
@@ -112,15 +119,24 @@ const Navbar = () => {
             className="fixed right-0 top-0 z-[70] h-full w-[88%] max-w-sm bg-white shadow-2xl ring-1 ring-black/5 translate-x-0 transition-transform duration-200 md:hidden"
           >
             <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-              <img src="/images/legiguard.png" alt="LegiGuard" className="h-10 w-auto" />
+              <img
+                src="/images/legiguard.png"
+                alt="LegiGuard"
+                className="h-10 w-auto"
+              />
               <button
                 ref={closeBtnRef}
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-lg ring-1 ring-gray-200 hover:ring-gray-300 transition bg-white"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-lg ring-1 ring-gray-200 hover:ring-gray-300 transition bg-white cursor-pointer"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+                  <path
+                    d="M6 6l12 12M18 6L6 18"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
                 </svg>
               </button>
             </div>
@@ -133,7 +149,7 @@ const Navbar = () => {
                       smooth
                       to={to}
                       onClick={() => setOpen(false)}
-                      className="block rounded-lg px-3 py-3 text-[15px] text-gray-800 hover:bg-gray-50"
+                      className="block rounded-lg px-3 py-3 text-[15px] text-gray-800 hover:bg-gray-50 cursor-pointer"
                     >
                       {label}
                     </HashLink>
@@ -143,8 +159,11 @@ const Navbar = () => {
 
               <div className="mt-4 border-t border-gray-100 pt-4">
                 <button
-                  onClick={() => { setOpen(false); handleClick(); }}
-                  className="w-full inline-flex items-center justify-center rounded-full border border-button px-5 py-3 text-sm font-semibold text-button bg-white hover:bg-button hover:text-white transition-colors"
+                  onClick={() => {
+                    setOpen(false);
+                    handleClick();
+                  }}
+                  className="w-full inline-flex items-center justify-center rounded-full border border-button px-5 py-3 text-sm font-semibold text-button bg-white hover:bg-button hover:text-white transition-colors cursor-pointer"
                 >
                   Get started
                 </button>
